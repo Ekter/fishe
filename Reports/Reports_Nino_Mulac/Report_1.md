@@ -25,3 +25,5 @@ And now, it is dismantled :
 
 We could use its shell, but we well compare it with other types of shells, when we will do them (in two weeks).
 
+Nathan has also taken the brushless motor, and the ESC, and wanted to test them.
+I have chosen a better ESC, and we will test them next week.
