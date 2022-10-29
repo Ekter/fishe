@@ -11,6 +11,14 @@ Calibration commands:
 */
 
 #include "ph_grav.h"                                  //header file for Atlas Scientific gravity pH sensor
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+#define ONE_WIRE_BUS 2              // Data wire is plugged into digital pin 2 on the Arduino
+
+OneWire oneWire(ONE_WIRE_BUS);        // Setup a oneWire instance to communicate with any OneWire device
+
+DallasTemperature sensors(&oneWire);          // Pass oneWire reference to DallasTemperature library
 
 String inputstring = "";                              //a string to hold incoming data from the PC
 boolean input_string_complete = false;                //a flag to indicate have we received all the data from the PC
@@ -37,22 +45,19 @@ void parse_cmd(char* string) {                      //For calling calibration fu
   }
 }
 
-void setup() {
-  Serial.begin(9600);                                 //enable serial port
-  if (pH.begin()) { Serial.println("Loaded EEPROM");} 
-  Serial.println(F("Use commands \"CAL,4\", \"CAL,7\", and \"CAL,10\" to calibrate the circuit to those respective values"));
-  Serial.println(F("Use command \"CAL,CLEAR\" to clear the calibration"));
- }
-
-
 void serialEvent() {                                  //if the hardware serial port_0 receives a char
   inputstring = Serial.readStringUntil(13);           //read the string until we see a <CR>
   input_string_complete = true;                       //set the flag used to tell if we have received a completed string from the PC
 }
 
+void setup() {
+  Serial.begin(9600);                                 //enable serial port
+  if (pH.begin()) { Serial.println("Loaded EEPROM");} 
+  Serial.println(F("Use commands \"CAL,4\", \"CAL,7\", and \"CAL,10\" to calibrate the circuit to those respective values"));
+  Serial.println(F("Use command \"CAL,CLEAR\" to clear the calibration"));
+}
 
 void loop() {
-
   if (input_string_complete == true) {                //check if data received
     inputstring.toCharArray(inputstring_array, 30);   //convert the string to a char array
     parse_cmd(inputstring_array);                     //send data to pars_cmd function
@@ -60,7 +65,10 @@ void loop() {
     inputstring = "";                                 //clear the string
   }
   Serial.println(pH.read_ph());                       //output pH reading to serial monitor
+  sensors.requestTemperatures();   // Send the command to get temperatures
+  Serial.print("Temperature: ");      //print the temperature in Celsius
+  Serial.print(sensors.getTempCByIndex(0));
+  Serial.print((char)176);                    //shows degrees character
+  Serial.println("C");
   delay(1000);
 }
-
-
