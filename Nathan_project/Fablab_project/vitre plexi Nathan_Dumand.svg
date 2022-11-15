@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   viewBox="0 0 219.2126 294.54615"
-   width="219.2126"
-   height="294.54614"
+   viewBox="0 0 219.21793 291.46854"
+   width="219.21793"
+   height="291.46854"
    version="1.1"
    id="svg89"
    sodipodi:docname="vitre plexi Nathan_Dumand.svg"
-   inkscape:export-filename="vitre plexi v2.dxf.svg"
+   inkscape:export-filename="vitre plexi v2.svg"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
@@ -24,15 +24,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="2.8518452"
-     inkscape:cx="57.857278"
-     inkscape:cy="147.4484"
+     inkscape:zoom="11.973064"
+     inkscape:cx="213.47919"
+     inkscape:cy="278.66718"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g87" />
+     inkscape:current-layer="g41" />
   <desc
      id="desc2">vitre plexi v2.dxf - scale = 1.000000, origin = (0.000000, 0.000000), method = manual</desc>
   <defs
@@ -41,23 +41,11 @@
      inkscape:groupmode="layer"
      inkscape:label="vitre plexi v2_Sketch1"
      id="g41"
-     transform="translate(-9.0241366,-8.9879174)">
+     transform="translate(-9.0184048,-8.9879174)">
     <path
        style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
        d="m 201.72075,22.056464 h 13.73223"
        id="path23" />
-    <path
-       style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
-       d="M 228.15895,303.45627 V 22.056464"
-       id="path25" />
-    <path
-       style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
-       d="M 9.1019256,303.45627 H 228.15895"
-       id="path27" />
-    <path
-       style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
-       d="M 9.1019256,303.45627 V 22.056464"
-       id="path29" />
     <path
        style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
        d="M 197.18896,9.0657064 H 64.999174"
@@ -83,22 +71,22 @@
      inkscape:groupmode="layer"
      inkscape:label="vitre plexi v2_Sketch4"
      id="g87"
-     transform="translate(-9.0241366,-8.9879174)">
+     transform="translate(-9.0184048,-8.9879174)">
     <path
        style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
        d="M 64.999174,9.0657064 60.46689,22.056464"
        id="path47" />
     <path
-       style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
-       d="M 9.1019256,22.056464 V 303.45627"
+       style="fill:none;stroke:#fa0000;stroke-width:0.154747;stroke-dasharray:none;stroke-opacity:1"
+       d="M 9.1019256,22.056464 V 300.45646"
        id="path59" />
     <path
        style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
-       d="M 9.1019256,303.45627 H 228.15895"
+       d="M 9.0184048,300.366 H 228.07543"
        id="path61" />
     <path
-       style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
-       d="M 228.15895,303.45627 V 22.056464"
+       style="fill:none;stroke:#fa0000;stroke-width:0.154747;stroke-dasharray:none;stroke-opacity:1"
+       d="M 228.15895,300.45646 V 22.056464"
        id="path63" />
     <path
        style="fill:none;stroke:#fa0000;stroke-width:0.155578;stroke-dasharray:none;stroke-opacity:1"
