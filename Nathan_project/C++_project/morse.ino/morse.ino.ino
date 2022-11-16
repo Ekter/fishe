@@ -1,5 +1,5 @@
 #include "traducteur.h"
-traducteur Traducteur = traducteur();
+traducteur trad = traducteur();
 String motTraduire;
 String delayOuMillis;
 
@@ -24,9 +24,9 @@ void loop() {
   Serial.print("Le mot choisi est : ");
   Serial.println(motTraduire);
   if (delayOuMillis == "d") {
-    traducteur.traduitDelay(motTraduire);           //avec delay
+    trad.traduitDelay(motTraduire);           //avec delay
   }
   else {
-    traducteur.traduitMillis(motTraduire);          //sans delay
+    trad.traduitMillis(motTraduire);          //sans delay
   }
 }

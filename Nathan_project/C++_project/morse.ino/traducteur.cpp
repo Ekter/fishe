@@ -38,6 +38,7 @@ void traducteur::traduitDelay(String mot) {
     }
   }
   delay(1200);    //pause car fin du mot
+}
 
   void traducteur::allumerLedDelay(int duree) {
     digitalWrite(LED_BUILTIN, HIGH);  // led allumé
