@@ -7,4 +7,4 @@ Task according to the Gantt chart :
 
 video of the test shell:
 
-![video of the test shell](images_and_videos_for_reports/vic_shell_test.mp4)
+[video of the test shell](images_and_videos_for_reports/vic_shell_test.mp4)
