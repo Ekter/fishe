@@ -94,3 +94,20 @@ void traducteur::traduitDelay(String mot) {
     }
     return false;
   }
+
+  bool Traducteur::AttendreMillis(int duree){
+  currentTime=millis();
+  if ((currentTime-previousTime)>duree){   // si le temps actuel - l'ancien temps est supérieur à duree alors : 
+    previousTime=currentTime;               
+    return true;                  
+  }
+  return false;
+}
+
+
+void Traducteur::allumerLedDelay(int duree){
+  digitalWrite(LED_BUILTIN, HIGH);  // on allume la led
+  delay(duree);
+  digitalWrite(LED_BUILTIN, LOW);   // on etteint la led
+  delay(400);
+  }               
