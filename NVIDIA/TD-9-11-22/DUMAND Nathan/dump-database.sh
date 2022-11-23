@@ -1,3 +1,16 @@
+On commence par créer le fichier dans lequel tout sera sauvegardé :
+sudo mkdir /home/databasebackup
+sudo mkdir /home/var/log
+
+On se place dans le repertory /home avec :
+cd /home
+
+Puis on rajoute tous les droits à l'utilisateur pour ces fichiers :
+sudo chmod 700 /databasebackup
+sudo chmod 700 /var/log
+
+Et on prépre le script suivant :
+
 #!/bin/sh
 
 username "$nathan"
