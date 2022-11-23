@@ -1,0 +1,11 @@
+Pour modifier la taille d'un fichier il y a la commande : 
+truncate [option] <taille> $logfile
+
+Donc si on part du principe qu'on supprime la les données du fichier lorsqu'il atteint 500Kb 
+if [ "$logfile" -gt 500 ] 
+then 
+    truncate -s 0 $logfile
+    
+fi
+
+Nous pourrions choisir une taille limite qui ne vide les log que lorsque le fichier a fait X repetition.

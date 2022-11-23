@@ -1,0 +1,38 @@
+Install :
+sudo apt update  //mise à jour des packet
+sudo apt install mysql-server
+
+Avant d'importer une base de donnée, on a sécurisé mysql avec la commande
+mysql_secure_installation
+
+Cependant une erreur a lieu et on doit pour éviter la boucle suivre ce shéma :
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+exit;
+
+On lance la commande de sécurité vu précedement
+puis on se connecte avec l'utilisateur
+mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+
+Cela crée et un mdp pour l'utilisateur puis l'enleve pour permettre l'ajout de sécurité
+
+Ensuite j'ai crée un utilisateur pour mes bases de donnée
+je me connect avec root
+mysql -u root -p
+puis je crée et ajoute les droit à l'utilisateur
+CREATE USER 'nathan'@'localhost' IDENTIFIED WITH authentication_plugin BY 'password';
+GRANT ALL PRIVILEGES ON database.table TO 'nathan'@'localhost';
+
+Pour importer une base de donnée :
+On va sur internet et on télécharge le fichier
+On va dans le dossier et on unzip :
+cd ~/Downloads
+unzip mysqlsampledatabase.zip
+
+On se connecte à mysql et on déclare la nouvelle base de donnée:
+mysql -u nathan -p
+source /home/nath/Downloads/mysqlsampledatabase.sql
+
+Et on affiche la base de donnée pour vérifier :
+show databases;

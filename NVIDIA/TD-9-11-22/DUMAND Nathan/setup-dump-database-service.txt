@@ -1,0 +1,8 @@
+J'actualise le systeme avec :
+sudo systemctl daemon-reload
+
+puis je passe en lance le service
+sudo systemctl start dump-database.service
+
+puis je passe en actif le timer
+sudo systemctl enable dump-database.timer

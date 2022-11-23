@@ -1,0 +1,17 @@
+On commence On commence par créer le timer:
+sudo touch /etc/systemd/system/dump-database.timer
+
+Puis on lance le VI pour le rédiger
+sudo vi /etc/systemd/system/dump-database.timer
+
+et on rédige le script suivant :
+[Unit]
+Description=Run backup every 10min
+
+[Timer]
+OnCalendar=*:0/10
+AccuracySec=1s
+Unit=dump-database.service
+
+[Install]
+WantedBy=timer.target

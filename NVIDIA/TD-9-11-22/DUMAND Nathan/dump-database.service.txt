@@ -1,0 +1,12 @@
+On commence par créer le service :
+sudo touch /etc/systemd/system/dump-database.service
+
+Puis on lance le VI pour le rédiger
+sudo vi /etc/systemd/system/dump-database.service
+
+et on rédige le script suivant :
+[Unit]
+Description=backup database
+
+[Service]
+ExecStart=/home/nath/dump-database.sh
