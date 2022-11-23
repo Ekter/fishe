@@ -1,4 +1,3 @@
-
 # Réalisation d’un script de sauvegarde de base de données
 
 Enoncé :

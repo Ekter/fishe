@@ -20,7 +20,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'reader'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-`reader` pourra lire la base de données.
+`reader` pourra lire(entre autres) la base de données.
 
 ## Importation de la base de données depuis le fichier .sql
 
@@ -32,7 +32,7 @@ mysql -u reader -p < mysqlsampledatabase.sql
 
 on peut désormais voir la base de données
 
-![mysql](./picture_database.png)
+![dbeaver](./picture_database.png)
 
 ## Exportation de la base de données
 
