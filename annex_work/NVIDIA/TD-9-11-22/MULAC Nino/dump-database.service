@@ -1,0 +1,9 @@
+[Unit]
+Description=service to backup a database
+After=network.target
+
+[Service]
+WorkingDirectory=/
+User=root
+ExecStart=/home/ekter/Documents/clone/python/bash/dump-database.sh
+Type=oneshot

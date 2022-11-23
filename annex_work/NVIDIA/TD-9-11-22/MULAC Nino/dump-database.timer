@@ -1,0 +1,9 @@
+# 
+[Unit]
+Description=lancement périodique du fichier de sauvegarde de la base de données
+
+[Timer]
+OnCalendar=*:0/10:0
+# OnCalendar=minutely
+[Install]
+WantedBy=timers.target
