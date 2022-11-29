@@ -1,19 +1,33 @@
 #include "Translator.h"
 
+/**
+ * @brief Construct a new Translator:: Translator object
+ * 
+ * @param pin int: if you want to use a pin to make an action, otherwise use Translator::Translator()
+ */
 Translator::Translator(int pin)
 {
     mor = Morse(pin);
 }
 
+/**
+ * @brief Construct a new Translator:: Translator object with the pin to default value specified by morse.h
+ * 
+ */
 Translator::Translator()
 {
     mor = Morse();
 }
 
+
 Translator::~Translator()
 {
 }
-
+/**
+ * @brief Translate a char to morse.
+ * 
+ * @param letter char: lowercase char or number.
+ */
 void Translator::translate(char letter)
 {
     switch (letter)
@@ -134,6 +148,11 @@ void Translator::translate(char letter)
     }
 }
 
+/**
+ * @brief function to translate dots and dashs to morse calls.
+ * 
+ * @param  morse char*: morse code 
+ */
 void Translator::action(char *morse)
 {
     int i = 0;
@@ -153,22 +172,24 @@ void Translator::action(char *morse)
         }
         i++;
     }
-    mor.space();
+    mor.little_space();
 }
-
+/**
+ * @brief function to translate an entire word(char*) to morse.
+ * 
+ * @param word char*: word to translate
+ */
 void Translator::translateword(char *word)
 {
     int i = 1;
     while (word[i] != '\0')
     {
-        if (word[i] == '0')
-        {
-            mor.space();
-        }
-        else
-        {
-            translate(word[i]);
-        }
+        translate(word[i]);
         i++;
     }
+}
+
+void Translator::makeaction()
+{
+    mor.makeaction();
 }

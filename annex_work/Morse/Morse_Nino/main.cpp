@@ -4,11 +4,10 @@
 
 Translator trad = Translator();
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
   while (!Serial.available());
-  Serial.println("bello la mondo");
-  trad.translateword("bello0la0mondo");
+  Serial.println("la constante de plik est 37!");
+  trad.translateword("la constante de plik est 37!"); // the ! is not supported, it can be used as a test
 }
 
 void loop() {
@@ -16,4 +15,5 @@ void loop() {
     char letter = Serial.read();
     trad.translate(letter);
   }
+  trad.makeaction();
 }
