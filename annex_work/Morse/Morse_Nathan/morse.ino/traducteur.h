@@ -12,7 +12,7 @@ class traducteur {
     char charLettre;                    // transformer une lettre d'un tableau en char
     bool allumerLedMillis(int duree, bool ledState);
     bool attendreMillis(int duree);
-    String TabTraductlettres[28][2] = { //on met dans un tableau a double entre la lettre de l'alphabet (colonne 1) et sa traduction en morse (colonne 2)
+    String TabTraductlettres[38][2] = { //on met dans un tableau a double entre la lettre de l'alphabet (colonne 1) et sa traduction en morse (colonne 2)
       {"a", "cl"},
       {"b", "lccc"},
       {"c", "lclc"},
@@ -30,7 +30,7 @@ class traducteur {
       {"o", "lll"},
       {"p", "cllc"},
       {"q", "llcl"},
-      {"r", "clc"},
+      {"r", "clc"}, 
       {"s", "ccc"},
       {"t", "l"},
       {"u", "ccl"},
