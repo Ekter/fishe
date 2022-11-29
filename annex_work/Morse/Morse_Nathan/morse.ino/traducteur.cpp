@@ -4,6 +4,7 @@ traducteur::traducteur() {        //constructeur par defaut
 }
 
 void traducteur::traduitMillis(String mot) {
+  previousTime=millis();                                    //initialise Millis pour ne pas avoir d'erreur
   mot.toLowerCase();                                        // transforme en lettre minuscule
   for (int lettre = 0; lettre < mot.length(); lettre++) {   // boucle prenant toute les lettres du mot
     for (int i = 0; i <= 37; i++) {                         // on vérifie pour toute les lettres
