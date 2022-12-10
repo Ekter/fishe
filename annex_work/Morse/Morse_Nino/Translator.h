@@ -11,4 +11,5 @@ public:
     ~Translator();
     void translate(char);
     void translateword(char*);
+    void makeaction();
 };
