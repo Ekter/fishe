@@ -38,3 +38,8 @@ So I have printed a reduction of the shell.
 Also, they don't have any way to measure drag, so I will have to make a device to measure it.
 The first idea is to use a dynamometer, attached to the shell, but the shell would move all around, eventually turning the dynamometer, and the measurement would be wrong since we want the drag with a constant angle.
 
+I made a design to measure the strenght applied on the dynamometer, while blocking the shell's rotation and movement.
+
+![dynamometer](images_and_videos_for_reports/drag_test.png)
+
+The pink part is put over the canal, the yellow part slides on the pink part, and is attached to the blue part with an height fixed by a screw. The blue part is attached to the shell. The dynamometer would be between the pink and the yellow part.
