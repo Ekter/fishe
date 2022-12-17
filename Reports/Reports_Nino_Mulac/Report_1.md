@@ -8,7 +8,7 @@ Task according to the Gantt chart :
 
 I chose to use the pH sensor.
 It is the [Grove – pH Sensor Kit](https://www.seeedstudio.com/blog/2020/05/14/measuring-ph-with-an-arduino-and-ph-sensor-arduino-tutorial/), and it uses the library `"phgrav.h"`.
-It doesn't use any timers, so it shoudn't have conflicts with other libraries.
+It doesn't use any timers, so it shouldn't have conflicts with other libraries.
 The pinout isn't hard either, so this sensor seems good.
 
 ![image_phmeter](images_and_videos_for_reports/ph_meter.png)

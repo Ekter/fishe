@@ -28,9 +28,9 @@ Now we can use the jetson nano with internet.
 
 The next problem is the firewall of the network.
 For the tests, I connected both my computer and the Jetson Nano to a mobile hotspot from my phone.
-This way, since they were both under the same network, they could coomunicate with each other.
+This way, since they were both under the same network, they could communicate with each other.
 But the firewall of the network wouldn't allow an ssh connection between the Jetson nano and a computer outside the network.
-It is not possible to disable the firewall on a phone, for security reasons, so we'll have to connect the jetson nano to a *real* wifi network, created by a confugurable internet box.
+It is not possible to disable the firewall on a phone, for security reasons, so we'll have to connect the jetson nano to a *real* wifi network, created by a configurable internet box.
 For now, I'll stay on this network, but I'll have to change it later.
 
 ## SSH server
@@ -39,5 +39,5 @@ The ssh server is already configured on the Jetson, with normal settings. But I 
 Now I can use graphical interface on the Jetson Nano, even if I'm not connected to it by a wire.
 
 Great achievement: I can now open Visual Studio Code on my computer and connect to the Jetson Nano via SSH using the Remote-SSH tools.
-So I can have one VScode running on my computer, connected to the jetson nano by the wired connection, another running simillarily but on the wireless connection, a third running on the jetson nano, reflected by the wired X connection, and a fourth running on the jetson nano, reflected by the wireless X connection, all editing the same files in real time...
+So I can have one VScode running on my computer, connected to the jetson nano by the wired connection, another running similarly but on the wireless connection, a third running on the jetson nano, reflected by the wired X connection, and a fourth running on the jetson nano, reflected by the wireless X connection, all editing the same files in real time...
 However, there is always a slight delay when using the X server connection online, and it is very annoying.

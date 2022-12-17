@@ -19,10 +19,10 @@ I have gone to the international convention "Méditerranée du Futur" in Marseil
 
 Firstly, my attention was drawn by an firm making water cleaning robots.
 They consist of catamaran with a net between their shells.
-They can catch a lot of garbage loke that, or it is possible to fill the net with an hydrocarbon absorber to help after oil spills for example.
+They can catch a lot of garbage like that, or it is possible to fill the net with an hydrocarbon absorber to help after oil spills for example.
 They can also work in collaboration to draw a bigger net.
 This robots were interesting because they are supposed to be in use for long periods, and must therefore be autonomous.
-But they aren't able to turn over yet if they tip over after hitting a rock for example, altough they are almost a meter long.
+But they aren't able to turn over yet if they tip over after hitting a rock for example, although they are almost a meter long.
 I would like my robot to be longer too, to be more stable.
 
 The second notable encounter was with a firm making analysis buoy, equipped with a lot of different sensors.
