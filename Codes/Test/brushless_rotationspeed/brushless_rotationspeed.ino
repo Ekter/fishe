@@ -1,6 +1,6 @@
 #include <Servo.h>
 Servo esc;   // Création de l'objet permettant le contrôle de l'ESC
-int val = 0; //
+int val = 59; //
 
 void setup() {
   esc.attach(9); // On attache l'ESC au port numérique 9 (port PWM obligatoire)
@@ -13,15 +13,16 @@ void setup() {
   delay(1000);
   esc.write(0);
   // Quelques informations pour l'utilisateur
-  Serial.println("Saisir un nombre entre 0 et 179");
-  Serial.println("(0 = arret - 179 = vitesse maxi");
-  Serial.println(" demarrage a partir de 20)");
+  //Serial.println("Saisir un nombre entre 0 et 179");
+  //Serial.println("(0 = arret - 179 = vitesse maxi");
+  //Serial.println(" demarrage a partir de 20)");
 }
 void loop() {
-  if (Serial.available() > 0) {
-    val = Serial.parseInt();   // lecture de la valeur passée par le port série
+  //if (Serial.available() > 0) {
+    //val = Serial.parseInt();   // lecture de la valeur passée par le port série
+    val++;
     Serial.println(val);
-    esc.write(val);            //
-    delay(15);
-  }
+    esc.write(val);
+    delay(1000);
+   // }
 }
