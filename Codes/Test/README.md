@@ -1,0 +1,6 @@
+# Code
+Sont présennt dans ce dossier les différents codes test réalisé pour notre projet, chaque capteur ou moteur à notre disposition possède son test. Ils sont tous codés pour une carte Arduino Uno
+Le fichier brushless_rotationspeed nous permet de controler notre moteur qui servira à la propulsion en ayant la possibilité d'inverser le sens de rotation ainsi que la vitesse de rotation du moteur.
+Le fichier capteur_ir permet de lier un capteur infrarouge qui detectera les obstacles et transmettra les informations au servomoteur qui gère le gouvernail du Fishe en jouant sur l'inclinaison.
+les fichiers temp_sensor nous permet de capter les mesures de la sonde de température en format digital et analogue. Cependant nous avons remarqué que la version analogue est plus précise.
+Le fichier pH nous permet de retrouver les valeurs pH du liquide dans lequel est plongé la sonde. Le calibrage va varié celon de nombreux critères, il faut donc le calibrer dans une solution neutre à chaque utilisation. Il est également codé sous python pour une Rasberry Pi Pico W, malheuresement le test n'est pas encore totalement au point consernant le calibrage général.
