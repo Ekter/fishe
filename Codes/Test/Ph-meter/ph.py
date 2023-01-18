@@ -18,7 +18,7 @@ def loop():
     for i in range(2,8): #take intermediate value
         avgval += buffer_arr[i] 
     #avgval = avgval/100
-    volt = (avgval * 3.3) / (65536 * 6)   #convert in voltage (In:3.3V 2^16:65536 calibration:6)
+    volt = (avgval * 3.3) / (65536 * 6)   #convert in voltage (In:3.3V 2^16:65536 6 central value)
     ph_act = -5.70 * volt + calibration_value #convert to pH
     print("rawValue : "+str(avgval)+"    Voltage : "+str(volt)+"    Ph : "+str(ph_act))
     sleep(1)

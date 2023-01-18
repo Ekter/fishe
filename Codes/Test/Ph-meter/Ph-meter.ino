@@ -28,7 +28,7 @@ void loop()
   }
   for (int i = 2; i < 8; i++)
     avgval += buffer_arr[i];        //summe of the midium value
-  float volt = (float)avgval * 5.0 / 1024 / 6;    //convert in voltage (In:5V 2^10:1024 calibration:6)
+  float volt = (float)avgval * 5.0 / 1024 / 6;    //convert in voltage (In:5V 2^10:1024 6 central values)
   float ph_act = -5.70 * volt + calibration_value;    //convert to pH
   Serial.print("rawValue : ");
   Serial.print(avgval);
