@@ -14,3 +14,7 @@ One solution may be to use only the bare ubuntu image for jetson nano, provided 
 Or we could try to install software on the `/home` partition, maybe with `snap` for example, but it isn't possible for all softwares.
 Plus, we still need to reinstall the OS to change the `/home` location to the sd card, since it was not configured this way when it was first installed.
 But I didn't manage to do it, altough I  have a lot of experience with ubuntu installation.
+
+
+
+I managed, after a lot of trouble, to move the `/home` to an additionnal disk I had installed to the Jetson Nano. Now I have a lot of space, and I can install a lot of software.
