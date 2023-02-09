@@ -1,6 +1,6 @@
 #include <Servo.h>
 Servo esc;   // Création de l'objet permettant le contrôle de l'ESC
-int val = 50; //valeur iniale du moteur (change celon les test
+int val = 80; //valeur iniale du moteur (change celon les test
 
 void setup() {
   esc.attach(9); // On attache l'ESC au port numérique 9 (port PWM obligatoire)
