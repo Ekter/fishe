@@ -1,6 +1,3 @@
-pip problems
-
-ports problems
 
 # Eleventh report -- 01/2/2023
 
