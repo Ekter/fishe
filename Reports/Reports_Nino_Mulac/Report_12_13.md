@@ -20,11 +20,11 @@ Here is an example frame of the video :
 Since we want to measure the spring's length, we just need to find the position delta between the two modules. So we need their relative position. We can identify them by two *easy* ways:analyzing the turquoise blue tape pieces, or the brown-red 3d printed pieces. The blue analyze would be easier since there is no close color around, but in some videos, Arkadii holds the module with a finger on the tape, so a lot a data would be loss.
 
 So I had to go for the red analysis, although the red is quite spread in the video.
-I started searching pure brown, picked up in the middle of the video, but because of the brightness changes, it didn't reallywork. I had to increase the filter's tolerance a lot to keep the two module in the whole video, and it made me see other things, like Arkadii's hand, and the reflects on the ruler. But this noises can be eliminated with other treatment. I isolated the filter's results as contours with a length and an area in pixels, and only kept bigger ones. Then I only needed to keep the closer from the bottom right hand corner with areas above respectively for the modules 300 and 1000 pixels. (this contours are in the next image, in red and blue)
+I started searching pure brown, picked up in the middle of the video, but because of the brightness changes, it didn't really work. I had to increase the filter's tolerance a lot to keep the two module in the whole video, and it made me see other things, like Arkadii's hand, and the reflects on the ruler. But this noises can be eliminated with other treatment. I isolated the filter's results as contours with a length and an area in pixels, and only kept bigger ones. Then I only needed to keep the closer from the bottom right hand corner with areas above respectively for the modules 300 and 1000 pixels. (this contours are in the next image, in red and blue)
 
 With the right contours, I just had to plot two fixed points, I chose the closest possible points to decrease errors. They are on the next image, in green.
 
-![anlyzed frame](images_and_videos_for_reports/img_proc_2.png)
+![analyzed_frame](images_and_videos_for_reports/img_proc_2.png)
 *the image is reversed, don't ask why*
 
 You can see the contours and the points on this image.
@@ -50,7 +50,7 @@ And for the spring, we have :
 
 See [the spreadsheet here](/Models/ressort.ods)
 
-We don't have the same equation, since my program gets the distance between two fixed points of the modules, and not the spring's lenght, but I just have to add a constant to correct it.
+We don't have the same equation, since my program gets the distance between two fixed points of the modules, and not the spring's length, but I just have to add a constant to correct it.
 
 Here is what I finally get : 
 ![chart](images_and_videos_for_reports/chart.png)
@@ -58,5 +58,5 @@ The lines are still the same thing, but I edited the blue line to be the spring'
 We can see a problem in the red line too : it seems to only follow the green line, where it should sum the purple and green lines...
 Now I need to reverse my equation, make a square root, and I'll have my precious drag coefficient!
 
-I have also solved the ports proble of the web server on the jetson nano; the problem was the framework, it was in debug mode, so it was only visible on localhost, and it was impossible to reach it from another ip adress. Now I have corrected it, I can access it through the web, still only if I am on the same network, but that's a lot of progress!
+I have also solved the ports problem of the web server on the jetson nano; the problem was the framework, it was in debug mode, so it was only visible on localhost, and it was impossible to reach it from another ip address. Now I have corrected it, I can access it through the web, still only if I am on the same network, but that's a lot of progress!
 
