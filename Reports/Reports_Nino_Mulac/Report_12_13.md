@@ -1,7 +1,7 @@
 # Twelfth and Thirteenth Report -- 14/2/2023
 
 
-I made the drag test that I talked about in the previous reports with M. Arkadii Schodenski(wrong spelling probably).
+I made the drag test that I talked about in the previous reports with M. Arkadii Solenskii(wrong spelling probably).
 I filmed the two modules to study the force of water drag.
 The videos are available here : [videos folder](images_and_videos_for_reports/temp_fishe/new)
 The water flow in the canal was 10L in 15.72s (see picture of the chronometer, we  measured the time necessary to fill a 10L bucket), giving an average water speed of 12cm/s, given the area of the canal.
