@@ -23,7 +23,7 @@ class Thermometer:
             temp_values.append(self.one_wire_link.read_temp(self.address()))
             sleep(delay)
         temp_values.sort()
-        return sum(temp_values[2:8])/6
+        return sum(temp_values[2:precision-2])/(precision-4)
 
     def address(self) -> bytes:
         """finds the thermometer's address"""

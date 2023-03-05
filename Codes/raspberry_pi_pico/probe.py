@@ -12,10 +12,18 @@ class Probe:
         self.turboSensor = turboSensor
 
     def measure(self):
-        print(f"""pH : {self.pHMeter.measure()}
-Temperature : {self.thermometer.measure()}
-Turbidity : {self.turboSensor.measure()}
+        ph = self.pHMeter.measure()
+        temperature = self.thermometer.measure()
+        turbidity = self.turboSensor.measure()
+        print(f"""pH : {ph}
+Temperature : {temperature}
+Turbidity : {turbidity}
 """)
 
     def test(self):
-        self.pHMeter.
+        self.pHMeter.test()
+        self.thermometer.test()
+        self.turboSensor.test()
+
+    def send_data(self):
+        pass
