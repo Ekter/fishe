@@ -97,7 +97,7 @@ Turbidity : {turbidity}
             data = data_raw.readlines()
             if data[0].strip()!="MeasureId,ProbeID,Temperature,PH,Turbidity,Zposition,XPosition,YPosition,Date":
                 self.generate_data_file()
-            for 
+            
 
 
         r2 = urequests.get("http://192.168.34.199/api/measure/?format=api")
