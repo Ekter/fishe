@@ -1,0 +1,4 @@
+workspace.xml
+venv
+__pycache__
+Codes/fishe_server/db.sqlite3
