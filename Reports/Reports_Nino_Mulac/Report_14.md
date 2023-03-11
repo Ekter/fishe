@@ -1,3 +1,4 @@
+# Fourteenth report -- 4/03/2023
 
 This week, I adjusted the speed computation, there was a problem with the addition of the two different speeds. I also modified the algorithm to plot the speed of the phone, it previously worked only if the number of points was constant, and now it works all the time. 
 I managed to deploy the server on the Jetson Nano and I was able to detect it with the Raspberry Pi pico. There are still some problems with the requests though, because the raspberry pi, despite being new, has outdated web drivers, and can't support normal requests. I think it requires requests as GET, with all in the header, or as POST, but not with a JSON body. I am investigating this, and I am getting strange errors I didn't even think possible...
