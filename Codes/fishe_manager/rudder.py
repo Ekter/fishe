@@ -40,7 +40,7 @@ def main():
             print("Outputting {} to pin {}".format(curr_value, output_pin))
             t = time.time()
             GPIO.output(output_pin, curr_value)
-            print((time.time()-t)/1000)
+            print((time.time()-t)*1000)
             curr_value ^= GPIO.HIGH
     finally:
         GPIO.cleanup()
