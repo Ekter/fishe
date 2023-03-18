@@ -71,10 +71,9 @@ def main():
     servo = Servo()
     servo.attach(12)
     try:
+        import random
         while True:
-            servo.write(-90)
-            time.sleep(1)
-            servo.write(90)
+            servo.write(random.randint(-90, 90)
             time.sleep(1)
             # ~1° offset probably due to python's latency and my program
     except KeyboardInterrupt:
