@@ -6,12 +6,15 @@ import threading
 
 
 class Servo:
-    def __init__(self):
+    def __init__(self, angle_to_delay = None):
         self.angle = 0
-        self.angle_to_delay = lambda angle: 1500 + 50/9 * angle
+        if angle_to_delay is None:
+            self.angle_to_delay = lambda angle: 1.5 + 50/9000 * angle
+        else:
+            self.angle_to_delay = angle_to_delay
         self.attached = False
-        t = threading.Thread(target=self.loop)
-        t.start()
+        self.t = threading.Thread(target=self.loop)
+        self.t.start()
 
     def attach(self, pin):
         self.pin = pin
@@ -46,10 +49,11 @@ def main():
     servo = Servo()
     servo.attach(12)
     while True:
-        servo.write(90)
-        time.sleep(1)
-        servo.write(-90)
-        time.sleep(1)
+        servo.write(37)
+        time.sleep(0.011)
+        servo.write(63)
+        time.sleep(0.011)
+        # ~1° de décalage en théorie
 
 if __name__ == '__main__':
     main()
