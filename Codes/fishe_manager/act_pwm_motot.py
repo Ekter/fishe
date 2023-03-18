@@ -72,10 +72,10 @@ def main():
     servo.attach(12)
     try:
         while True:
-            servo.write(37)
-            time.sleep(0.011)
-            servo.write(63)
-            time.sleep(0.011)
+            servo.write(-90)
+            time.sleep(1)
+            servo.write(90)
+            time.sleep(1)
             # ~1° offset probably due to python's latency and my program
     except KeyboardInterrupt:
         del servo
