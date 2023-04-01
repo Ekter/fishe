@@ -8,6 +8,7 @@ import arduino_communicator
 
 
 def main():
+    print("-----------------------------------------------------LAUNCHING THE FISHE-----------------------------------------------------")
     com = arduino_communicator.ArduinoCommunicator()
     time.sleep(5)
     rud = rudder.Rudder(com)
