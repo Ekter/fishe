@@ -1,29 +1,39 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """class propeller to manage the propeller of the fishe"""
+import arduino_communicator
 
-import RPi.GPIO as GPIO
-import time
+class Propeller:
+    """class propeller to manage the propeller of the fishe"""
+    def __init__(self, communicator : arduino_communicator.ArduinoCommunicator):
+        self.communicator = communicator
+        self.speed = 0
+        self.max_speed = 30
+        self.min_speed = -30
 
-# Pin Definitions
+    def start(self):
+        """start the propeller"""
+        self.communicator.send(210)
+        self.set_speed(0)
 
+    def set_speed(self, speed : int):
+        """set the speed of the propeller(between -30 and 30)"""
+        if speed > self.max_speed:
+            self.speed = self.max_speed
+        elif speed < self.min_speed:
+            self.speed = self.min_speed
+        else:
+            self.speed = speed
+        self.communicator.send(self.speed+60-self.min_speed)
 
-def main():
-    input_pin = 18  # BCM pin 18, BOARD pin 12
-    # Pin Setup:
-    GPIO.setmode(GPIO.BCM)  # BCM pin-numbering scheme from Raspberry Pi
-    GPIO.setup(input_pin, GPIO.IN)  # set pin as an input pin
-    
-    print("Starting demo now! Press CTRL+C to exit")
-    try:
-        while True:
-            value = GPIO.input(input_pin)
-            # GPIO.output(input_pin,GPIO.LOW)
-            print("Value read from pin {} : {}".format(input_pin,
-                                                        value))
-            time.sleep(1)
-            input_pin+=1
-    finally:
-        GPIO.cleanup()
+    def stop(self):
+        """stop the propeller"""
+        self.set_speed(0)
+        self.communicator.send(220)
 
-if __name__ == '__main__':
-    main()
+    def increase_speed(self, speed):
+        """increase the speed of the propeller"""
+        self.set_speed(self.speed + speed)
+
+    def decrease_speed(self, speed):
+        """decrease the speed of the propeller"""
+        self.set_speed(self.speed - speed)
