@@ -24,3 +24,7 @@ def main():
     except KeyboardInterrupt:
         rud.stop()
         prop.stop()
+
+
+if __name__ == "__main__":
+    main()
