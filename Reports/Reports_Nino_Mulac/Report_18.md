@@ -13,7 +13,7 @@ Then I have 209 to attach the servo motor to pin 9, 210 to attach the ESC to pin
 
 With this new version of the program, I lose the option of changing the pin, as they are now hard-coded in the program, but I can control two servos, and I can control the ESC directly.
 
-I tried the whole programmed, and it worked.
+I tried the whole program, and it worked.
 
 
 I made a bash program to launch the fishe(both the movement controller using the arduino and the web server for data transfer) [here](../../Codes/fishe_manager/runfishe.sh).
