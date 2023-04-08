@@ -20,4 +20,3 @@ I made a bash program to launch the fishe(both the movement controller using the
 It launches both python programs simultaneously, the server on a virtual environment, and the movement manager on the system python, because I couldn't make it work on the virtual environment, the serial module seems not to be installable on it.
 
 It seems to work, but I didn't manage to stop the ESC when I sent the command for a speed of 0, and I don't know why.
-
