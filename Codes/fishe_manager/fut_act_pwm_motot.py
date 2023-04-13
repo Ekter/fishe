@@ -61,6 +61,29 @@ class Servo:
                 while time.time()-beg_loop<=20/1000:
                     pass
 
+    def __loop2(self):
+        """Loop2 function for the servo motor.
+        DO NOT CALL DIRECTLY!!!!
+        The __init__ does his work supposedly.
+        """
+
+        def _lowin(t : float):
+            time.sleep(t)
+            GPIO.output(self.pin, GPIO.LOW)
+
+        def _highin(t : float):
+            time.sleep(t)
+            GPIO.output(self.pin, GPIO.HIGH)
+
+        while True:
+            if self.attached:
+                future_low = threading.Thread(target=_lowin, args=(self.angle_to_delay(self.angle)/1000,))
+                future_high = threading.Thread(target=_highin, args=(20/1000,))
+                future_low.start()
+                future_high.start()
+                future_low.join()
+                future_high.join()
+
     def __del__(self):
         self.detach()
         print("a")

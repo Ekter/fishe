@@ -1,49 +1,39 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+"""class rudder to manage the rudder of the fishe"""
+import arduino_communicator
 
-# Copyright (c) 2019-2022, NVIDIA CORPORATION. All rights reserved.
-# Permission is hereby granted, free of charge, to any person obtaining a
-# copy of this software and associated documentation files (the "Software"),
-# to deal in the Software without restriction, including without limitation
-# the rights to use, copy, modify, merge, publish, distribute, sublicense,
-# and/or sell copies of the Software, and to permit persons to whom the
-# Software is furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
-# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-# DEALINGS IN THE SOFTWARE.
+class Rudder:
+    """class rudder to manage the rudder of the fishe"""
+    def __init__(self, communicator : arduino_communicator.ArduinoCommunicator):
+        self.communicator = communicator
+        self.angle = 0
+        self.min_angle = 90
+        self.max_angle = -90
 
-import RPi.GPIO as GPIO
-import time
+    def start(self):
+        """start the rudder"""
+        self.communicator.send(209)
+        self.set_angle(0)
 
-# Pin Definitions
-output_pin = 18  # BCM pin 18, BOARD pin 12
+    def set_angle(self, angle : int):
+        """set the angle of the rudder(between -90 and 90)"""
+        if angle > self.max_angle:
+            self.angle = self.max_angle
+        elif angle < self.min_angle:
+            self.angle = self.min_angle
+        else:
+            self.angle = angle
+        self.communicator.send(int((self.angle+90)/6))
 
-def main():
-    # Pin Setup:
-    GPIO.setmode(GPIO.BCM)  # BCM pin-numbering scheme from Raspberry Pi
-    # set pin as an output pin with optional initial state of HIGH
-    GPIO.setup(output_pin, GPIO.OUT, initial=GPIO.LOW)
+    def stop(self):
+        """stop the rudder"""
+        self.set_angle(0)
+        self.communicator.send(220)
 
-    print("Starting demo now! Press CTRL+C to exit")
-    curr_value = GPIO.HIGH
-    try:
-        while True:
-            time.sleep(1)
-            # Toggle the output every second
-            print("Outputting {} to pin {}".format(curr_value, output_pin))
-            t = time.time()
-            GPIO.output(output_pin, curr_value)
-            print((time.time()-t)*1000)
-            curr_value ^= GPIO.HIGH
-    finally:
-        GPIO.cleanup()
+    def increase_angle(self, angle : int):
+        """increase the angle of the rudder"""
+        self.set_angle(self.angle + angle)
 
-if __name__ == '__main__':
-    main()
+    def decrease_angle(self, angle : int):
+        """decrease the angle of the rudder"""
+        self.set_angle(self.angle - angle)

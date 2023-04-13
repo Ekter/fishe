@@ -10,6 +10,7 @@
             "includePath": [
                 "/home/ekter/Documents/clone/fishe/Codes/fishe_manager/pwm_control_nano_arduino/include",
                 "/home/ekter/Documents/clone/fishe/Codes/fishe_manager/pwm_control_nano_arduino/src",
+                "/home/ekter/Documents/clone/fishe/Codes/fishe_manager/pwm_control_nano_arduino/.pio/libdeps/nanoatmega328/Servo/src",
                 "/home/ekter/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "/home/ekter/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
                 "/home/ekter/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
@@ -24,6 +25,7 @@
                 "path": [
                     "/home/ekter/Documents/clone/fishe/Codes/fishe_manager/pwm_control_nano_arduino/include",
                     "/home/ekter/Documents/clone/fishe/Codes/fishe_manager/pwm_control_nano_arduino/src",
+                    "/home/ekter/Documents/clone/fishe/Codes/fishe_manager/pwm_control_nano_arduino/.pio/libdeps/nanoatmega328/Servo/src",
                     "/home/ekter/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "/home/ekter/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
                     "/home/ekter/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
