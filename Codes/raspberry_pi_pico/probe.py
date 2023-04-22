@@ -4,15 +4,11 @@ from pHMeter import PHMeter
 from turbiditySensor import TurbiditySensor
 import secret_data
 import uos
-import socket
-import math
-import utime
 import network
 import time
 import urequests
 import random
 import ujson
-import machine
 
 
 class Probe:
@@ -97,8 +93,6 @@ Turbidity : {turbidity}
             data = data_raw.readlines()
             if data[0].strip()!="MeasureId,ProbeID,Temperature,PH,Turbidity,Zposition,XPosition,YPosition,Date":
                 self.generate_data_file()
-            
-
 
         r2 = urequests.get("http://192.168.34.199/api/measure/?format=api")
         print(str(r2.__dict__))
