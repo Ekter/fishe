@@ -19,6 +19,7 @@ The main modifications I made are :
 Here, the shell is the blue part. The lid is the transparent pink part.
 The seal closing the lid consists on two nested sills of 2mm-3mm-2mm to make sure it is watertight.
 The shell is 8mm thick. I made this choice to make sure the shell is strong enough to resist to the pressure of the water.
+
 ![shell](images_and_videos_for_reports/shell_under_3.png)
 
 In this cross section view, we can see there is also 8mm around the marbles.
