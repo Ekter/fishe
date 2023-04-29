@@ -1,6 +1,6 @@
 """Thermometer class for the probe"""
 
-from time import sleep
+from utime import sleep
 
 from ds18x20 import DS18X20
 from machine import Pin
@@ -9,9 +9,9 @@ from onewire import OneWire
 
 class Thermometer:
     """Thermometer class for the probe"""
-    def __init__(self, pin : Pin):
-        self.pin = pin
-        self.one_wire_link = DS18X20(OneWire(pin))
+    def __init__(self, pin : int = 18):
+        self.pin = Pin(pin)
+        self.one_wire_link = DS18X20(OneWire(self.pin))
         self.addresses = self.one_wire_link.scan()
         self.address()
 
@@ -47,7 +47,7 @@ class Thermometer:
 
 
 if __name__ == "__main__":
-    thermo = Thermometer(Pin(26))
+    thermo = Thermometer(26)
     while True:
         print(f"actual temperature : {thermo.measure()}")
         sleep(0.5)
