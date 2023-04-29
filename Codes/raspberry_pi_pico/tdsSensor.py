@@ -36,7 +36,9 @@ class TDSSensor:
 
     def test(self) -> None:
         """tests the probe and verifies values are correct"""
-        if int(self.measure()) in range(0,50000):
+        a=self.measure()
+        print(f"actual TDS : {a}")
+        if int(a) in range(0,50000):
             print("Normal TDS")
         else:
             raise AssertionError("TDS not normal!")
