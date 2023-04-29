@@ -49,7 +49,6 @@ Here is the whole design(one resistor between the thermometer's interfaces is mi
 
 ![electrical design](images_and_videos_for_reports/electrical_diagram_probe.png)
 
-
 ## Make the shell printable
 
 I can't print the shell as it is, because it is too thin, and the 3d printer would print the top of the shell in the air, so I have to add some supports. Making the supports on Prusa slicer would prevent me from putting the cells for example, so I had to make the supports myself. I'm not sure if it will work, because I am far from the safe bridge length in most cases, but... we'll see.
