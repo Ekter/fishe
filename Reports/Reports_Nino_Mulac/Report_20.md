@@ -19,6 +19,7 @@ The main modifications I made are :
 Here, the shell is the blue part. The lid is the transparent pink part.
 The seal closing the lid consists on two nested sills of 2mm-3mm-2mm to make sure it is watertight.
 The shell is 8mm thick. I made this choice to make sure the shell is strong enough to resist to the pressure of the water.
+
 ![shell](images_and_videos_for_reports/shell_under_3.png)
 
 In this cross section view, we can see there is also 8mm around the marbles.
@@ -35,7 +36,7 @@ The cells are the pink cylinders on the designs, they are currently AAA cells bu
 
 * I chose to use button cells for the power supply, any external battery is way too large, and the voltage of button cells(3V) makes the volumetric voltage really high, in contrary to standard cells. I could also use a LR23(I saw one in a shop, it is a bit tinier than a AAA cell, but 12V).
 
-The raspberry pi pico can be powered in any range between 1.8V and 5.5V, making it really easy to use. If we only needed him, a single button cell between the pico's GND and VSYS would be necessary. However, we have sensors that require a higher voltage to work, and if this voltage isn't precisely 5V, we lose a lot of accuracy on the measures.
+The raspberry pi pico can be powered in any range between 1.8V and 5.5V, making it really easy to use. If we only needed it, a single button cell between the pico's GND and VSYS would be necessary, resulting on 3V on VSYS. However, we have sensors that require a higher voltage to work, and if this voltage isn't precisely 5V, we lose a lot of accuracy on the measures.
 Because of this restrictions, we need to use one more cell to reach 6V and a tension regulator.
 However, the regulators are generally not very precise, and it would be hard to use. Another option would be to use another board like an arduino for power regulation. For example, an arduino nano can take any voltage input between 7V 12V and make it a fixed voltage. The minimum of 7V is because of the regulator's loss, because of a Schottky diode in the regulator. In our case, it would require a third button cell to reach 9V, but it is still possible.
 The best solution would be to find button cells with a different voltage to make a voltage input between 3.3V and 5.5V, and to use sensors that work in 3.3V.
