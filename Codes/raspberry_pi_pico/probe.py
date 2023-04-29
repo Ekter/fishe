@@ -1,7 +1,7 @@
 """main class of the probe, with attributes for each sensor"""
 from thermometer import Thermometer
 from pHMeter import PHMeter
-from turbiditySensor import TurbiditySensor
+from tdsSensor import TDSSensor
 import secret_data
 import uos
 import network
@@ -14,7 +14,7 @@ import ujson
 class Probe:
     "probe class"
 
-    def __init__(self, pH_meter : PHMeter, thermometer : Thermometer, turbo_sensor : TurbiditySensor,probe_id : int = 0):
+    def __init__(self, pH_meter : PHMeter, thermometer : Thermometer, turbo_sensor : TDSSensor,probe_id : int = 0):
         self.pHMeter = pH_meter
         self.thermometer = thermometer
         self.turboSensor = turbo_sensor
