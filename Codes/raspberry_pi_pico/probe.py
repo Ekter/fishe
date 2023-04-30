@@ -10,6 +10,7 @@ import urequests
 import random
 import ujson
 import machine
+import utime
 
 
 class Probe:
@@ -19,13 +20,13 @@ class Probe:
         self,
         pH_meter: PHMeter,
         thermometer: Thermometer,
-        turbo_sensor: TDSSensor,
+        tds_sensor: TDSSensor,
         probe_id: int = 0,
     ):
         self.led=machine.Pin("LED")
         self.pHMeter = pH_meter
         self.thermometer = thermometer
-        self.turboSensor = turbo_sensor
+        self.tdsSensor = tds_sensor
         listdir = uos.listdir()
         self.measureId = 0
         self.data_file = "data_to_send.csv"
@@ -56,29 +57,6 @@ class Probe:
         ip = wlan.ifconfig()[0]
         print("IP: ", ip)
 
-        r2 = urequests.get("http://192.168.34.199/api/measure/?format=api")
-        print(str(r2.__dict__))
-        print(r2.content.decode())
-        for i in range(10):
-            r3 = urequests.post(
-                "http://192.168.34.199/api/measure/",
-                headers={"content-type": "application/json"},
-                data=ujson.dump(
-                    "data",
-                    {
-                        "temperature": random.randint(0, 20),
-                        "pH": random.randint(0, 1400) / 100,
-                        "turbidity": random.randint(0, 10000),
-                        "x_position": random.randint(-500, 500) / 100,
-                        "y_position": random.randint(-500, 500) / 100,
-                        "z_position": random.randint(-500, 500) / 1000 - i,
-                        "probe": 1,
-                    },
-                ),
-            )
-            if r3.status_code == 200:
-                print("tvgjhrfbkdcxslw")
-
     def generate_data_file(self):
         with open("data_to_send.csv", "w") as f:
             f.write(
@@ -88,7 +66,7 @@ class Probe:
     def measure(self):
         ph = self.pHMeter.measure()
         temperature = self.thermometer.measure()
-        turbidity = self.turboSensor.measure()
+        turbidity = self.tdsSensor.measure()
         with open(self.data_file, "a") as data:
             data.write(
                 f"{self.measureId},{self.probeId},{temperature},{ph},{turbidity},{0},{0},{0}\n"
@@ -107,12 +85,25 @@ Turbidity : {turbidity}
 
 
     def test(self):
-        self.pHMeter.test()
-        self.thermometer.test()
-        self.turboSensor.test()
+        try:
+            self.pHMeter.test()
+        except RuntimeError:
+            print("pH meter failed")
+        try:
+            self.thermometer.test()
+        except RuntimeError:
+            print("thermometer failed")
+        try:
+            self.tdsSensor.test()
+        except RuntimeError:
+            print("turbidity sensor failed")
 
     def send_data(self):
-        self.connect_wifi()
+        try:
+            self.connect_wifi()
+        except RuntimeError:
+            print("wifi connection failed, keeping data for later")
+            return
         with open(self.data_file) as data_raw:
             data = data_raw.readlines()
             if (
@@ -144,7 +135,9 @@ Turbidity : {turbidity}
                 ),
             )
             if r3.status_code == 200:
-                print("tvgjhrfbkdcxslw")
+                print("sent!")
+                for i in range(50):
+                    utime.sleep()
             else:
                 print(f"failed:{r3.status_code}")
                 print(d)
@@ -153,11 +146,9 @@ Turbidity : {turbidity}
             data_raw.write("\n".join(buffer_failed))
 
 
-
-
 if __name__ == "__main__":
     probe = Probe(PHMeter(), Thermometer(), TDSSensor())
     probe.test()
     while True:
         probe.measure()
-    probe.send_data()
+        probe.send_data()
