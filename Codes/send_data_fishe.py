@@ -5,7 +5,7 @@
 # 1,10,7.02,0.3,-110,100,400
 
 
-import requests
+import urequests
 import time
 
 TEMPLATE="MeasureId,Temperature,PH,Turbidity,Zposition,XPosition,YPosition"

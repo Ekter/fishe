@@ -1,6 +1,6 @@
 """Thermometer class for the probe"""
 
-from time import sleep
+from utime import sleep
 
 from ds18x20 import DS18X20
 from machine import Pin
@@ -9,9 +9,9 @@ from onewire import OneWire
 
 class Thermometer:
     """Thermometer class for the probe"""
-    def __init__(self, pin : Pin):
-        self.pin = pin
-        self.one_wire_link = DS18X20(OneWire(pin))
+    def __init__(self, pin : int = 18):
+        self.pin = Pin(pin)
+        self.one_wire_link = DS18X20(OneWire(self.pin))
         self.addresses = self.one_wire_link.scan()
         self.address()
 
@@ -29,25 +29,27 @@ class Thermometer:
         """finds the thermometer's address"""
         try:
             addresses = self.one_wire_link.scan()
-        except BrokenPipeError:   #pas sur
+        except Exception as e:
             self.one_wire_link = DS18X20(OneWire(self.pin))
             addresses = self.one_wire_link.scan()
         if len(addresses)>=1:
             return addresses[0]
-        raise BrokenPipeError("No thermometer found!")
+        raise Exception("No thermometer found!")
 
     def test(self) -> None:
         """tests the probe and verifies values are correct"""
-        if int(self.measure()) in range(0,25):
+        a=self.measure()
+        print(f"actual temperature : {a}")
+        if int(a) in range(0,25):
             print("Normal temperature")
-        elif int(self.measure()) in range(-273,1000):
+        elif int(a) in range(-273,1000):
             print("Physically possible temperature, but not normal")
         else:
             raise AssertionError("Temperature not normal!")
 
 
 if __name__ == "__main__":
-    thermo = Thermometer(Pin(26))
+    thermo = Thermometer(26)
     while True:
         print(f"actual temperature : {thermo.measure()}")
         sleep(0.5)
