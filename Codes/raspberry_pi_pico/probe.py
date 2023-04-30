@@ -124,19 +124,20 @@ Turbidity : {turbidity}
         r2 = urequests.get("http://192.168.34.199/api/measure/?format=api")
         print(str(r2.__dict__))
         print(r2.content.decode())
-        for i in range(10):
+        for d in data:
+            d_list = d.split(",")
             r3 = urequests.post(
                 "http://192.168.34.199/api/measure/",
                 headers={"content-type": "application/json"},
                 data=ujson.dump(
                     "data",
                     {
-                        "temperature": random.randint(0, 20),
-                        "pH": random.randint(0, 1400) / 100,
-                        "turbidity": random.randint(0, 10000),
-                        "x_position": random.randint(-500, 500) / 100,
-                        "y_position": random.randint(-500, 500) / 100,
-                        "z_position": random.randint(-500, 500) / 1000 - i,
+                        "temperature": d_list[2],
+                        "pH": d_list[3],
+                        "turbidity": d_list[4],
+                        "x_position": d_list[6],
+                        "y_position": d_list[7],
+                        "z_position": d_list[5],
                         "probe": 1,
                     },
                 ),
