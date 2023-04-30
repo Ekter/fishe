@@ -64,9 +64,22 @@ class Probe:
             )
 
     def measure(self):
-        ph = self.pHMeter.measure()
-        temperature = self.thermometer.measure()
+        try:
+            temperature = self.thermometer.measure()
+        except Exception as e:
+            print("thermometer failed: ", e)
+            temperature = -1
+        try:
+            ph = self.pHMeter.measure()
+        except Exception as e:
+            print("pH meter failed: ", e)
+            ph = -1
+        try:
+        self.tdsSensor.set_temp(temperature)
         turbidity = self.tdsSensor.measure()
+        except Exception as e:
+            print("TDS sensor failed: ", e)
+            turbidity = -1
         with open(self.data_file, "a") as data:
             data.write(
                 f"{self.measureId},{self.probeId},{temperature},{ph},{turbidity},{0},{0},{0}\n"
@@ -87,16 +100,16 @@ Turbidity : {turbidity}
     def test(self):
         try:
             self.pHMeter.test()
-        except RuntimeError:
-            print("pH meter failed")
+        except Exception as e:              # should be more specific, like Assertion error, but I'm beeing careful
+            print("pH meter failed: ", e)
         try:
             self.thermometer.test()
-        except RuntimeError:
-            print("thermometer failed")
+        except Exception as e:
+            print("thermometer failed: ", e)
         try:
             self.tdsSensor.test()
-        except RuntimeError:
-            print("turbidity sensor failed")
+        except Exception as e:
+            print("TDS sensor failed: ", e)
 
     def send_data(self):
         try:
@@ -136,8 +149,12 @@ Turbidity : {turbidity}
             )
             if r3.status_code == 200:
                 print("sent!")
-                for i in range(50):
-                    utime.sleep()
+                for i in range(10):
+                    for _ in range(10):
+                        self.led.on()
+                        utime.sleep(0.01*(i/10))
+                        self.led.off()
+                        utime.sleep(0.01*((-i+10)/10))
             else:
                 print(f"failed:{r3.status_code}")
                 print(d)
