@@ -124,7 +124,8 @@ Turbidity : {turbidity}
         r2 = urequests.get("http://192.168.34.199/api/measure/?format=api")
         print(str(r2.__dict__))
         print(r2.content.decode())
-        for d in data:
+        buffer_failed = ["MeasureId,ProbeID,Temperature,PH,Turbidity,Zposition,XPosition,YPosition,Date"]
+        for d in data[1:]:
             d_list = d.split(",")
             r3 = urequests.post(
                 "http://192.168.34.199/api/measure/",
@@ -144,6 +145,14 @@ Turbidity : {turbidity}
             )
             if r3.status_code == 200:
                 print("tvgjhrfbkdcxslw")
+            else:
+                print(f"failed:{r3.status_code}")
+                print(d)
+                buffer_failed.append(d)
+        with open(self.data_file, "w") as data_raw:
+            data_raw.write("\n".join(buffer_failed))
+
+
 
 
 if __name__ == "__main__":
