@@ -5,12 +5,14 @@ from tdsSensor import TDSSensor
 import secret_data
 import uos
 import network
-import time
 import urequests
 import random
 import ujson
 import machine
 import utime
+
+def to_standart_time(gmtime):
+    return f"{gmtime[0]}-{gmtime[1]}-{gmtime[2]} {gmtime[3]}:{gmtime[4]}:{gmtime[5]}"
 
 
 class Probe:
@@ -75,21 +77,19 @@ class Probe:
             print("pH meter failed: ", e)
             ph = -1
         try:
-        self.tdsSensor.set_temp(temperature)
-        turbidity = self.tdsSensor.measure()
+            self.tdsSensor.set_temp(temperature)
+            turbidity = self.tdsSensor.measure()
         except Exception as e:
             print("TDS sensor failed: ", e)
             turbidity = -1
         with open(self.data_file, "a") as data:
             data.write(
-                f"{self.measureId},{self.probeId},{temperature},{ph},{turbidity},{0},{0},{0}\n"
+                f"""{self.measureId},{self.probeId},{temperature},{ph},{turbidity},{0},{0},{0},{to_standart_time(utime.gmtime())}\n"""
             )
-        print(
-            f"""pH : {ph}
+        print(f"""pH : {ph}
 Temperature : {temperature}
 Turbidity : {turbidity}
-"""
-        )
+""")
         for i in range(2):
             self.led.on()
             utime.sleep(0.5)
@@ -124,10 +124,13 @@ Turbidity : {turbidity}
                 != "MeasureId,ProbeID,Temperature,PH,Turbidity,Zposition,XPosition,YPosition,Date"
             ):
                 self.generate_data_file()
+        try:
+            r2 = urequests.get("http://192.168.34.199/api/measure/?format=api")
+            print(str(r2.__dict__))
+            print(r2.content.decode())
 
-        r2 = urequests.get("http://192.168.34.199/api/measure/?format=api")
-        print(str(r2.__dict__))
-        print(r2.content.decode())
+        except Exception as e:
+            print(e)
         buffer_failed = ["MeasureId,ProbeID,Temperature,PH,Turbidity,Zposition,XPosition,YPosition,Date"]
         for d in data[1:]:
             d_list = d.split(",")
@@ -144,6 +147,7 @@ Turbidity : {turbidity}
                         "y_position": d_list[7],
                         "z_position": d_list[5],
                         "probe": 1,
+                        "time": d_list[8],
                     },
                 ),
             )
@@ -159,6 +163,13 @@ Turbidity : {turbidity}
                 print(f"failed:{r3.status_code}")
                 print(d)
                 buffer_failed.append(d)
+                for i in range(10):
+                    for _ in range(10):
+                        self.led.on()
+                        utime.sleep(0.01*((-i+10)/10))
+                        self.led.off()
+                        utime.sleep(0.01*(i/10))
+
         with open(self.data_file, "w") as data_raw:
             data_raw.write("\n".join(buffer_failed))
 
