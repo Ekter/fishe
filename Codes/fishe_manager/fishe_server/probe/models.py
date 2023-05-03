@@ -19,6 +19,7 @@ class Measure(models.Model):
     x_position = models.FloatField()
     y_position = models.FloatField()
     z_position = models.FloatField()
+    time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"<{self.probe.name}>" \
@@ -27,4 +28,5 @@ class Measure(models.Model):
                f"({self.turbidity}NTU)" \
                f"({self.x_position}m)" \
                f"({self.y_position}m)" \
-               f"({self.z_position}m)"
+               f"({self.z_position}m)" \
+               f"({self.time})"
