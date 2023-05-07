@@ -1,4 +1,4 @@
-# Eighteenth report -- 28/03/2022
+# Eighteenth report -- 28/03/2023
 
 This week, I modified my arduino enslavement program to allow the control of two servos.
 This way, I can control the rudder(with the servo motor) and the propeller(with the ESC, commanded as a servo).
