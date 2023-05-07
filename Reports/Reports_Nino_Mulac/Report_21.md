@@ -15,7 +15,7 @@ Here, we can see the projected area of the inside and the one of the cotter pin.
 I had to modify the sensors since they were too big and really not optimized for my design, since it is really thin. So I removed the pH-meter's probe connector and will solder the wires directly to the board.
 I also unsoldered the potentiometers on the side then connected them back with small wires to be able to move them on the side of the board:
 
-![ph meter destroyed](images_and_videos_for_reports/ph_meter_destroyed.png)
+![ph_meter_destroyed](images_and_videos_for_reports/ph_meter_destroyed.png)
 
 I will solder the probe on the CN1 point.
 
