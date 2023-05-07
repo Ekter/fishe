@@ -17,4 +17,6 @@ I had a problem with the ph meter though, the sensor's board didn't fit in the s
 
 ![shell_end](images_and_videos_for_reports/shell_end.jpg)
 
+![shell_end2](images_and_videos_for_reports/shell_end2.jpg)
+
 Here is the final result, with the metallic supports still in place.
