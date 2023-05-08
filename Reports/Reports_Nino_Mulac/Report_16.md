@@ -1,4 +1,4 @@
-# Sixteenth report -- 13/03/2022
+# Sixteenth report -- 13/03/2023
 
 I tried to assemble the shell and the propeller with Nathan this week.
 I screwed the bottom of the propeller in the shell, since Nathan designed a vertical part on the propeller specifically for that. It screwed it directly in the shell, so the plastic of the shell just got penetrated, and the screw got fixed with the expansive foam. It held very well, but I had put the propeller in the wrong direction, so I had to remove it. But the screws were stuck due to the moss's elasticity, so it was impossible to remove two of them. I had to cut a part of the shell... It's not very important, but it could cause vulnerabilities in the future. I'd prefer not having to print a new one, I'll do my best with this one...
