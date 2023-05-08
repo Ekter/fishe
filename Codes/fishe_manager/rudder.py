@@ -7,8 +7,8 @@ class Rudder:
     def __init__(self, communicator : arduino_communicator.ArduinoCommunicator):
         self.communicator = communicator
         self.angle = 0
-        self.min_angle = 90
-        self.max_angle = -90
+        self.min_angle = 0
+        self.max_angle = 180
 
     def start(self):
         """start the rudder"""
@@ -23,7 +23,7 @@ class Rudder:
             self.angle = self.min_angle
         else:
             self.angle = angle
-        self.communicator.send(int((self.angle+90)/6))
+        self.communicator.send(int((self.angle)/6))
 
     def stop(self):
         """stop the rudder"""
