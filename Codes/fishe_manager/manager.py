@@ -27,6 +27,8 @@ def main():
         rud.start()
         prop.start()
         probe.start()
+        time.sleep(5)
+        print(com.read())
         # input("-----------------------------press enter to start the fishe demo-----------------------------")
         rud.set_angle(90)
         prop.set_speed(30)
