@@ -49,6 +49,7 @@ def main():
         time.sleep(5)
         probe.go_up()
         time.sleep(5)
+        probe.stop()
         print("-----------------------------------------------------fishe demo routine ended-----------------------------------------------------")
 
     except KeyboardInterrupt:
