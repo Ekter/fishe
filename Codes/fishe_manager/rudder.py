@@ -13,7 +13,7 @@ class Rudder:
     def start(self):
         """start the rudder"""
         self.communicator.send(209)
-        self.set_angle(0)
+        self.set_angle(90)
 
     def set_angle(self, angle : int):
         """set the angle of the rudder(between -90 and 90)"""
