@@ -2,3 +2,4 @@ workspace.xml
 venv
 __pycache__
 Codes/fishe_server/db.sqlite3
+Codes/fishe_manager/ROS/catkin_ws/build

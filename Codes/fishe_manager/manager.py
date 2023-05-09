@@ -5,22 +5,50 @@ import time
 import rudder
 import propeller
 import arduino_communicator
+import probe_manager
 
 
 def main():
-    print("-----------------------------------------------------LAUNCHING THE FISHE-----------------------------------------------------")
-    com = arduino_communicator.ArduinoCommunicator()
-    time.sleep(5)
-    rud = rudder.Rudder(com)
-    prop = propeller.Propeller(com)
-
-    rud.start()
-    prop.start()
+    print("-----------------------------------------------------LAUNCHING THE CONNECTIONS-----------------------------------------------------")
+    try:
+        com = arduino_communicator.ArduinoCommunicator()
+        time.sleep(5)
+        rud = rudder.Rudder(com)
+        prop = propeller.Propeller(com)
+        probe = probe_manager.ProbeManager(com)
+    except Exception as e:
+        print("-----------------------------------------------------ERROR-----------------------------------------------------")
+        print(e)
+        print("-----------------------------------------------------ERROR-----------------------------------------------------")
+        return
+    print("-----------------------------------------------------CONNECTIONS CORRECT-----------------------------------------------------")
 
     try:
-        while True:
-            rud.set_angle(int(input("angle: ")))
-            prop.set_speed(int(input("speed: ")))
+        rud.start()
+        prop.start()
+        probe.start()
+        input("-----------------------------press enter to start the fishe demo-----------------------------")
+        rud.set_angle(90)
+        prop.set_speed(30)
+        time.sleep(5)
+        prop.set_speed(0)
+        time.sleep(1)
+        prop.set_speed(-30)
+        time.sleep(5)
+        prop.set_speed(0)
+        time.sleep(1)
+        rud.set_angle(30)
+        time.sleep(5)
+        rud.set_angle(150)
+        time.sleep(5)
+        rud.set_angle(90)
+        time.sleep(1)
+        probe.go_down()
+        time.sleep(5)
+        probe.go_up()
+        time.sleep(5)
+        print("-----------------------------------------------------fishe demo routine ended-----------------------------------------------------")
+
     except KeyboardInterrupt:
         rud.stop()
         prop.stop()

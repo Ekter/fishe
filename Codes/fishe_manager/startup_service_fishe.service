@@ -1,0 +1,9 @@
+[Unit]
+Description=Run fishe_manager
+
+[Service]
+Type=simple
+ExecStart=/home/pi/Codes/fishe_manager/runfishe.sh
+
+[Install]
+WantedBy=default.target

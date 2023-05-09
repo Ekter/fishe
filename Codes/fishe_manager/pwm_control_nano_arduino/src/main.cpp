@@ -5,7 +5,7 @@ Servo servo;
 Servo servo2;
 void setup()
 {
-  Serial.begin(119200);
+  Serial.begin(115200);
 }
 
 void loop()
@@ -36,6 +36,17 @@ void loop()
       Serial.print("Servo2 set to ");
       Serial.println(a);
     }
+    else if (a==121)
+    {
+      digitalWrite(5,HIGH);
+      digitalWrite(6,LOW);
+    }
+    else if (a==122)
+    {
+      digitalWrite(5,LOW);
+      digitalWrite(6,HIGH);
+    }
+    
     else if (a==209)
     {
       servo.attach(9);
@@ -43,6 +54,13 @@ void loop()
     else if (a==210)
     {
       servo2.attach(10);
+    }
+    else if (a==211)
+    {
+      pinMode(5,OUTPUT);
+      pinMode(6,OUTPUT);
+      digitalWrite(5,LOW);
+      digitalWrite(6,LOW);
     }
     else if (a==219)
     {
@@ -52,6 +70,10 @@ void loop()
     {
       servo2.detach();
     }
-    
+    else if (a==221)
+    {
+      digitalWrite(5,LOW);
+      digitalWrite(6,LOW);
+    }
   }
 }
