@@ -45,6 +45,6 @@ So the shell's space must really be well optimized.
 
 The advantage of this approach is that the only part that needs to be watertight is the cotter pin.
 
-I printed a little one to test it, and water without pressure couldn't go through it, both with PETG and flex fil
+I printed a little one to test it, and water without pressure couldn't go through it, both with PETG and flex wire.
 
 I don't know if it will hold with 11 bar though.

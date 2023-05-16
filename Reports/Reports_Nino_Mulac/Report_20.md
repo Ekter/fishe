@@ -46,3 +46,4 @@ The best solution would be to find button cells with a different voltage to make
 I managed to make a *mobile hotspot* on the nano and to connect to it with my phone, I am almost done with this part!
 
 The data transfer program is almost done, I just need to wrap things up.
+ 
