@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 # Creating a VideoCapture object to read the video
 cap = cv2.VideoCapture('Reports/Reports_Nino_Mulac/images_and_videos_for_reports/temp_fishe/new/vid1.mp4')
-show = False
+show = True
 print(cap)
 i=1
 for _ in range(1520):

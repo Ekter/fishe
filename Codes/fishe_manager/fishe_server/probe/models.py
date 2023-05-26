@@ -24,7 +24,7 @@ class Measure(models.Model):
     def __str__(self):
         return f"<{self.probe.name}>" \
                f"({self.temperature}°C)" \
-               f"({self.pH})" \
+               f"({self.ph})" \
                f"({self.turbidity}NTU)" \
                f"({self.x_position}m)" \
                f"({self.y_position}m)" \
